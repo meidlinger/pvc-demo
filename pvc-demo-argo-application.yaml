@@ -9,12 +9,11 @@ spec:
     server: https://kubernetes.default.svc 
   project: default 
   source: 
-    path: demo
+    path: pvc-demo/overlays/demo
     repoURL: https://github.com/meidlinger/pvc-demo
     targetRevision: main
   syncPolicy: 
     automated:
       prune: true
-      selfHeal: false
     syncOptions:
     - CreateNamespace=true
