@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: pvc-demo
+  namespace: openshift-gitops
+spec:
+  destination:
+    namespace: pvc-demo
+    server: https://kubernetes.default.svc 
+  project: default 
+  source: 
+    path: demo
+    repoURL: https://github.com/meidlinger/pvc-demo
+    targetRevision: main
+  syncPolicy: 
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true
